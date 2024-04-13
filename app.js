@@ -1,14 +1,13 @@
-const dotenv=require('dotenv')
 process.on('uncaughtException', err => {
     console.log('Uncaught Exception...')
     console.log(err)
     process.exit(1)
 })
-dotenv.config({ path: './config.env' })
 const mongoose=require('mongoose')
 const app=require('./index')
 
 const DB = process.env.DATABASE;
+console.log('the db is', DB);
 mongoose.connect(DB,{
     useNewUrlParser:true,
     useUnifiedTopology: true 
